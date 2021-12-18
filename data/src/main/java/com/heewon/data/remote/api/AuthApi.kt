@@ -7,18 +7,18 @@ import retrofit2.http.*
 
 interface AuthApi {
 
-    @GET("/oauth")
+    @GET("oauth")
     suspend fun fetchAuthLink(
         @Query("type") authType: String
     ): AuthLinkResponse
 
-    @POST("/auth")
+    @POST("auth")
     suspend fun signIn(
         @Query("code") code: String,
         @Query("type") authType: String,
     ): TokenResponse
 
-    @PUT("/auth")
+    @PUT("auth")
     suspend fun tokenRefresh(
         @Body tokenRefreshRequest: TokenRefreshRequest
     ): TokenResponse
